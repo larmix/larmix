@@ -19,8 +19,6 @@ The code can be executed on any standard laptop or desktop device running Ubuntu
 These dependencies can be easily installed using the following command:
 `pip install -r requirements.txt`
 
-If there is still some problems for installing the dependencies, we provide a docker instance with all the dependencies preinstalled.
-
 ## Code execution
 The file `main.py` contains the code for producing all the results mentioned in LARmix evaluations.
 
