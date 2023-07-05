@@ -20,7 +20,7 @@ These dependencies can be easily installed using the following command:
 `pip install -r requirements.txt`
 
 ## Code execution
-The file `main.py` contains the code for producing all the results mentioned in LARmix evaluations.
+The file `Main.py` contains the code for producing all the results mentioned in LARmix evaluations.
 
 - Just executing `python3 Main.py` will automatically perform all the experiments and generate results in `Figures` and `Tables` folder. 
 
@@ -35,7 +35,7 @@ Specifically, the following results can be generated:
   - Inputs: <'name of experiment', 'size of mixnet (nodes*layers)', 'no. of iterations'> 
 
 - Figure 4c (Bad Assignment)
-  - `C.Basic_Exp_WC('Fig4_b', 128*3, 2)`
+  - `C.Basic_Exp_WC('Fig4_c', 128*3, 2)`
   - Inputs: <'name of experiment', 'size of mixnet (nodes*layers)', 'no. of iterations'>
 
 - Table 3 (also displayed in the command line)
@@ -61,6 +61,10 @@ Specifically, the following results can be generated:
 - Figure 11 (LARMix vs CLAPS)
   - `C.Claps('Fig11', 32*3, 2)`
   - Inputs: <'name of experiment', 'size of mixnet (nodes*layers)', 'no. of iterations'>
+ 
+- Table 4 (LARMis vs 2-layer vanialla mixnet)
+  - `C.Two_Layers_VS_LARMIX('Loopix_Larmix',128,1)`
+  -  Inputs: <'name of experiment', 'no. of nodes in each layer', 'no. of iterations'>
 
 ## Additional Notes
 
@@ -72,7 +76,7 @@ Specifically, the following results can be generated:
 
 - For Figure 7, network size is a factor of 10. 
 
-- Increasing the number of iterations improves accuracy and reduces sampling errors for better results. However, it increases execution time. Thus, we have kept the iterations to two, but they can be increased to a value of 1000 (as in the main paer) at the expense of more than 24 hours to complete the experiment and obtain the results.
+- Increasing the number of iterations improves accuracy and reduces sampling errors for better results. However, it increases execution time. Thus, we have kept the iterations to two, but they can be increased to a value of 1000 (as in the main paper) at the expense of more than 24 hours to complete the experiment and obtain the results.
 
 - It is recommended to give each experiment a different name to avoid any conflicts when running the codes in parallel. Upon running each experiment, a file will be generated with its corresponding name to store necessary data used for plotting.
 
