@@ -67,10 +67,4 @@ C.Claps('Fig11',32*3,2)
 #The function takes three arguments: the first argument is used to specify the name of the experiment, 
 #the second argument determines the number of mix nodes in each layer, 
 #and the last argument represents the number of iterations 
-C.Two_Layers_VS_LARMIX('Loopix_Larmix',128,1)  
-
-#Client_Latency
-#The function takes three arguments: the first argument is used to specify the name of the experiment, 
-#the second argument determines the number of mix nodes , 
-#and the last argument represents the number of iterations 
-C.Client_Latency('Client_Latency',20,1)
+C.Two_Layers_VS_LARMIX('Loopix_Larmix',128,2)  
