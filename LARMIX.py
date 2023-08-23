@@ -85,7 +85,7 @@ class LARMIX(object):
         self.rate = 100        #Hyper parameter to tune the number of messages in simulation
         self.num_targets = 20       #Number of target messages in simulation 
         self.Iterations = 1        
-        self.run_time = 0.32        
+        self.run_time = 0.45        
         self.NYM = False# We don't want to use NYM dataset
         self.RIPE = True        
         self.strategy = 0      #Adversary strategy which is initialy equale to 0 
@@ -238,7 +238,7 @@ class LARMIX(object):
             PLT2.scatter_line(True)            
             PLT1.scatter_line(True)
             
-    def Table3(self,Max_Latency,Name,N):                                
+    def Table3(self,Max_Latency,Name,N,Iterations):                                
         from Datasets import Dataset
         Limitation = Max_Latency               
         Goal = Name + str(round(Limitation*1000)) + 'ms'
@@ -246,11 +246,11 @@ class LARMIX(object):
         DF  = Dataset(self.data,N,Goal)
         Data_set =  DF.data_set()
         from Optimum_tau_mu import Detailed_Analysis
-        run_time = Limitation+0.1       
-        Iterations = 1
+        run_time = Limitation+0.25      
+
         D = Detailed_Analysis(Data_set, self.Clustering, self.Diversify, self.Routing, self.Balancing, N, self.num_Clusters, self.speed_Function,self.Tau, self.r, self.Decimal_precision, self.Algorithm,self.Layers, self.mu,0,1
                               ,self.num_targets,Iterations,self.Capacity,run_time,self.Lambda,self.H_N,self.rate,self.Clustering,Goal,self.NYM,self.RIPE)
-        D.Entropy_Latency_Analytic(1,Limitation)
+        D.Entropy_Latency_Analytic(Iterations,Limitation)
         D.Entropy_Latency_Simulation(Limitation)
         import pickle
         delay = int(1000*Limitation)
@@ -288,7 +288,7 @@ class LARMIX(object):
         pdf.multi_cell(0, 10, table)
         pdf.output('Tables/'+'Maximum_Mixing_Delays' + str(delay)+'.pdf')
         
-    def Maximum_tau_mu(self,Name,Delay_List,N):
+    def Maximum_tau_mu(self,Name,Delay_List,N,Iterations):
         Maximum_tau = []
         Maximum_mu  = []
         for m_delay in Delay_List:       
@@ -300,10 +300,9 @@ class LARMIX(object):
             Data_set =  DF.data_set()                       
             from Optimum_tau_mu import Detailed_Analysis
             run_time = Limitation+0.1            
-            Iterations = 1
             D = Detailed_Analysis(Data_set, self.Clustering, self.Diversify, self.Routing, self.Balancing, N, self.num_Clusters, self.speed_Function,self.Tau, self.r, self.Decimal_precision, self.Algorithm,self.Layers, self.mu,0,1
                                   ,self.num_targets,Iterations,self.Capacity,run_time,self.Lambda,self.H_N,self.rate,self.Clustering,Goal,self.NYM,self.RIPE)
-            D.Entropy_Latency_Analytic(1,Limitation)
+            D.Entropy_Latency_Analytic(Iterations,Limitation)
             D.Entropy_Latency_Simulation(Limitation)        
             import pickle
             delay = int(1000*Limitation)

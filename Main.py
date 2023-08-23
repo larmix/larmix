@@ -42,17 +42,19 @@ C.Basic_Exp_WC('Fig4_c',128*3,2)
 #The function takes three arguments: the first argument specifies the maximum end to end delay
 # The second one is used to specify the name of the experiment, 
 #the third argument determines the number of mix nodes (which should be a multiple of 3), 
+#The last one specifies the number of iteration
 del C
 C = LARMIX()
-C.Table3(0.2,'Table3',128*3) 
+C.Table3(0.2,'Table3',128*3,5) 
          
 #Fig6
 #The function takes two arguments: the first argument specifies list of  maximum end to end delays
 # The second one is used to specify the name of the experiment, 
 #the third argument determines the number of mix nodes (which should be a multiple of 3), 
+#The last one specifies the number of iteration
 del C
 C = LARMIX()
-C.Maximum_tau_mu('Fig6',[0.2,0.25,0.3,0.35,0.4,0.45],128*3)    
+C.Maximum_tau_mu('Fig6',[0.2,0.25,0.3,0.35,0.4,0.45],128*3,1)    
 #Fig7
 
 #The function takes three arguments: the first argument is used to specify the name of the experiment, 
