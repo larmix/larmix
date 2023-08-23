@@ -65,32 +65,31 @@ class LARMIX(object):
     
     def __init__(self):
         self.data = 'RIPE'        
-        self.Dimention = 16*3          #A mixnet with 3 layers each of which has 16 nodes
+        self.Dimention = 16*3 #A mixnet with 3 layers each of which has 16 nodes
         self.Clustering = 'kmedoids'
         self.Routing = True
         self.Balancing = True
         self.N = self.Dimention        
         self.num_Clusters = 5        
-        self.r = 1                      #A fixed parameter in formula 1 in the paper
-        self.Tau = 0.001                #Randomness in formula 1  
+        self.r = 1       #A fixed parameter in formula 1 in the paper
+        self.Tau = 0.001     #Randomness in formula 1  
         self.Algorithm = 'Greedy'
-        self.Diversify = 0              #Having the mixnodes diversified when this parameter is 0, if it's 1 or 2 the mixnet is arranged in random or bad case respectively
+        self.Diversify = 0        #Having the mixnodes diversified when this parameter is 0, if it's 1 or 2 the mixnet is arranged in random or bad case respectively
         self.speed_Function = 'Verloc'  # It's needed for specific cases when we use verloc data     
         self.Decimal_precision = 5      #How accurate our balancing should be  
         self.Layers = 3       
-        self.mu = 0.02                  #Mixing delay   
-        self.Lambda = 0.0001            #10000 messages per seconds enter the mixnet       
+        self.mu = 0.05    #Mixing delay   
+        self.Lambda = 0.0001 #10000 messages per seconds enter the mixnet       
         self.Capacity = 10000000000000000000000000000000000000000000000000000000000000000        
-        self.H_N = round(self.N/3)      #Hyper parameter to tune the number of messages in simulation      
-        self.rate = 100                 #Hyper parameter to tune the number of messages in simulation
-        self.num_targets = 20           #Number of target messages in simulation 
+        self.H_N = round(self.N/3)  #Hyper parameter to tune the number of messages in simulation      
+        self.rate = 100        #Hyper parameter to tune the number of messages in simulation
+        self.num_targets = 20       #Number of target messages in simulation 
         self.Iterations = 1        
         self.run_time = 0.32        
-        self.NYM = False                # We don't want to use NYM dataset
+        self.NYM = False# We don't want to use NYM dataset
         self.RIPE = True        
-        self.strategy = 0               #Adversary strategy which is initialy equale to 0 
-        self.frac = 1                   #Fraction of used nodes out of available ones
-        
+        self.strategy = 0      #Adversary strategy which is initialy equale to 0 
+        self.frac = 1   #Fraction of used nodes out of available ones
         #In the following we want to make sure we have Figures and Tables folders to store our final results
         import os
         if not os.path.exists('Figures'):
@@ -261,9 +260,12 @@ class LARMIX(object):
         Data_Table = {}
         Data_Table['Tau'] = Delay_dict['tau']
         Link_delays = []
+        counter = 0
         for item in Delay_dict['mg']:
-            Link_delays.append(int(1000*(Limitation-3*item))/1000)
+            Link_delays.append(1000*int(1000*(Limitation-3*item))/1000)
             Data_Table['Link_Delay'] = Link_delays
+            Delay_dict['mg'][counter] = 1000*(int(1000*Delay_dict['mg'][counter])/1000)
+            counter = counter+1
         Data_Table['Mixing_delay'] = Refine(Delay_dict['mg'],3)                       
         Data_Table['Entropy_Analytic'] = Refine(Delay_dict['hg'],3)   
         Data_Table['Entropy_Simulation'] = Refine(Med(Delay_dict['HG']),3)
@@ -310,7 +312,7 @@ class LARMIX(object):
                         Delay_dict = pickle.load(f) 
             Index = Med(Delay_dict['HG']).index(max(Med(Delay_dict['HG'])))
             Maximum_tau.append(Delay_dict['tau'][Index])
-            Maximum_mu.append(Delay_dict['mg'][Index])
+            Maximum_mu.append(1000*(int(1000*Delay_dict['mg'][Index])/1000))
         from Plot import PLOT
         Y = [Maximum_tau,Maximum_mu]
         PLT2 = PLOT(Delay_List,Y,[r'Maximum $\tau$','Maximum mixing delay'],'Maximum E2E delay',[r'Randomness ($\tau$)','Mixing delay'], 'Figures/Fig6.png')
