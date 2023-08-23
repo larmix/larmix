@@ -80,5 +80,8 @@ Specifically, the following results can be generated:
 
 - It is recommended to give each experiment a different name to avoid any conflicts when running the codes in parallel. Upon running each experiment, a file will be generated with its corresponding name to store necessary data used for plotting.
 
-- There are other additional parameters, such as the clustering method, the rate of traffic etc., that can be modified in the file `LARMIX.py`. We have the default values to preserve the parameters used in the original paper. 
+- There are other additional parameters, such as the clustering method, the rate of traffic etc., that can be modified in the file `LARMIX.py`. We have the default values to preserve the parameters used in the original paper.
+
+## Hardware Requirements
+The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 GB hard disk storage.
 
