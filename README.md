@@ -39,12 +39,12 @@ Specifically, the following results can be generated:
   - Inputs: <'name of experiment', 'size of mixnet (nodes*layers)', 'no. of iterations'>
 
 - Table 3 (also displayed in the command line)
-  - `C.Table3(0.2, 'Table3', 128*3)`
-  - Inputs: <'end-to-end delay (in seconds)', 'name of experiment', 'size of mixnet (nodes*layers)'>
+  - `C.Table3(0.2, 'Table3', 128*3, 3)`
+  - Inputs: <'end-to-end delay (in seconds)', 'name of experiment', 'size of mixnet (nodes*layers)', 'no. of iterations'>
 
 - Figure 6 (Maximum Tau or Mu)
-  - `C.Maximum_tau_mu([0.25, 0.3, 0.4], 128*3)`
-  - Inputs: <'list of end-to-end delays (in seconds)', 'size of mixnet (nodes*layers)'>
+  - `C.Maximum_tau_mu([0.25, 0.3, 0.4], 128*3, 3)`
+  - Inputs: <'list of end-to-end delays (in seconds)', 'size of mixnet (nodes*layers)', 'no. of iterations'>
 
 - Figure 7 (Network Size variation)
   - `C.Network_Size('Fig7', 300, 2)`
