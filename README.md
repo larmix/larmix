@@ -85,3 +85,43 @@ Specifically, the following results can be generated:
 ## Hardware Requirements
 The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 GB hard disk storage.
 
+## Brief description of individual class files
+
+- `2Layers.py and twolayers.py`: These files are used to construct two layers of Loopix-based mixnets.
+
+- `balanced.py`: Contains code for balancing the layers within the mixnet using different approaches.
+
+- `Bridge.py`: Designed for performing analytical evaluation and transferring useful data to the simulation part.
+
+- `CLAPS.py`: This file applies the CLAPS routing algorithm of Tor modified to work for mixnets.
+
+- `Client_Latency.py`: It is used to calculate average client latency to a given mixnet.
+
+- `Curruption.py`: Logic for defining and analysing the behavior of the corrupted mix nodes.
+
+- `Datasets.py`: It derives and transforms latency data in useful form to be used as datasets for constructing mixnets.
+
+- `Formula.py`: This file contains functions realizing the main routing formula of LARMix in equation 1.
+
+- `Generator.py and Message_Generation_and_mix_net_processing.py`: These files are responsible for generating messages for the simulation.
+
+- `LARMIX.py`: A class providing functions to conduct experiments within the mixnet framework making use of functions from other helper classes.
+
+- `Latency.py and Latency_Wide.py`: These files are used to derive latency measurements between mixnodes.
+
+- `Loopix.py or Mix_Net.py`: These files are involved in constructing Loopix-based mixnets (3 layers).
+
+- `Main.py`: This main file responsible for running all the experiments for analytical as well as simulation approaches.
+
+- `Message.py`: This file is used for defining the properties and function of messages in the mixnet.
+
+- `Mix_Node.py`: Simulation of mixnode behavior is implemented in this file.
+
+- `MixNetArrangement.py`: This file handles the assignment of mixnodes to different layers in the mixnets (with and without diversification).
+
+- `Prior_Analysis.py`: This file is dedicated to analyzing the analytic approaches for latency and entropy of the transformation matrix.
+
+- `Routing.py`: This file applies the routing policy of LARMIX to mixnets.
+
+- `Simulation.py or Sim.py`: These files are used for simulating the mixnet.
+
